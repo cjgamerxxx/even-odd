@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Render Numbers</title>
+<style>
+    .even {
+        color: green;
+    }
+
+    .odd {
+        color: red;
+    }
+</style>
+</head>
+<body>
+    <div id="numbers"></div>
+    <script>
+        function renderNumbers(numbers) {
+            const numbersDiv = document.getElementById('numbers');
+            numbersDiv.innerHTML = ''; // Clear previous content
+
+            numbers.forEach(number => {
+                const numberSpan = document.createElement('span');
+                numberSpan.textContent = number;
+                if (number % 2 === 0) {
+                    numberSpan.classList.add('even');
+                } else {
+                    numberSpan.classList.add('odd');
+                }
+                numbersDiv.appendChild(numberSpan);
+                numbersDiv.appendChild(document.createTextNode(' ')); // Add space between numbers
+            });
+        }
+
+        const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        renderNumbers(numbersArray);
+    </script>
+</body>
+</html>
